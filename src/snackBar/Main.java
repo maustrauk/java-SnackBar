@@ -15,11 +15,11 @@ public class Main {
         VendingMachine drink = new VendingMachine("Drink");
         VendingMachine office = new VendingMachine("Office");
 
-        Snack chips = new Snack("Chips", 36, 1.75, 0);
-        Snack chocolate = new Snack("Chocolate Bar", 36, 1.00, 0);
-        Snack pretzel = new Snack("Pretzel", 30, 2.00, 0);
-        Snack soda = new Snack("Soda", 24, 2.50, 1);
-        Snack water = new Snack("Water", 20, 2.75, 1);
+        Snack chips = new Snack("Chips", 36, 1.75, food.getId());
+        Snack chocolate = new Snack("Chocolate Bar", 36, 1.00, food.getId());
+        Snack pretzel = new Snack("Pretzel", 30, 2.00, food.getId());
+        Snack soda = new Snack("Soda", 24, 2.50, drink.getId());
+        Snack water = new Snack("Water", 20, 2.75, drink.getId());
 
         Print print = new Print(jane, soda);
 
@@ -59,5 +59,17 @@ public class Main {
         pretzel.buy(3);
         print.setObj(bob, pretzel);
         print.printMVP(0);
+
+        System.out.println("Stretch:");
+        System.out.println("");
+
+        water.addQuantity(10000);
+        
+        print.printStretch(chips);
+        print.printStretch(chocolate);
+        print.printStretch(pretzel);
+        print.printStretch(soda);
+        print.printStretch(water);
+
     }
 }
