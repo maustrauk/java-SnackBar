@@ -5,7 +5,8 @@ public class Main {
         System.out.println("My Snack Bar Project");
         Customer person1 = new Customer("Jane", 37.75);
         Snack snack1 = new Snack("Soda", 21, 2.5, 1);
+        VendingMachine vend1 = new VendingMachine("number 1");
         System.out.println(person1.getName() + " cash on hand " + String.valueOf(person1.getCashOnHand()));
-        System.out.println(snack1.getName() + " prise is " + snack1.getCost());
+        System.out.println(snack1.getName() + " prise is " + snack1.getCost() + " in vending " + vend1.getName());
     }
 }
