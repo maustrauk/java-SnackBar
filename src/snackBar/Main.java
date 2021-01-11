@@ -8,45 +8,56 @@ public class Main {
         System.out.println("My Snack Bar Project");
         
         
-        Customer jane = new Customer("Jane", 37.75);
-        Customer bob = new Customer("Bob", 28.14);
+        Customer jane = new Customer("Jane", 45.25);
+        Customer bob = new Customer("Bob", 33.14);
 
-        Snack soda = new Snack("Soda", 21, 2.5, 1);
-        Snack pretzel = new Snack("Pretzel", 29, 2, 1);
-        Snack chocolate = new Snack("Chocolate Bar", 35, 1, 2);
+        VendingMachine food = new VendingMachine("Food");
+        VendingMachine drink = new VendingMachine("Drink");
+        VendingMachine office = new VendingMachine("Office");
+
+        Snack chips = new Snack("Chips", 36, 1.75, 0);
+        Snack chocolate = new Snack("Chocolate Bar", 36, 1.00, 0);
+        Snack pretzel = new Snack("Pretzel", 30, 2.00, 0);
+        Snack soda = new Snack("Soda", 24, 2.50, 1);
+        Snack water = new Snack("Water", 20, 2.75, 1);
+
+        Print print = new Print(jane, soda);
 
         System.out.println("");
         System.out.println("MVP:");
         System.out.println("");
 
-        Print print = new Print(jane, soda);
-        
+        jane.buySnacks(3, soda.getCost());
+        soda.buy(3);
+        print.setObj(jane, soda);
         print.printMVP(0);
 
-        print.setSnack(pretzel);
+        jane.buySnacks(1, pretzel.getCost());
+        pretzel.buy(1);
+        print.setObj(jane, pretzel);
         print.printMVP(0);
 
-        print.setPerson(bob);
-        soda.addQuantity(19 - soda.getQuantity());
-        print.setSnack(soda);
+        bob.buySnacks(2, soda.getCost());
+        soda.buy(2);
+        print.setObj(bob, soda);
         print.printMVP(0);
 
-        jane.addToCashOnHand(45.75 -jane.getCashOnHand());
-        print.setPerson(jane);
+        jane.addToCashOnHand(10.00);
+        print.setObj(jane, soda);
         print.printMVP(1);
 
-        jane.addToCashOnHand(44.75 - jane.getCashOnHand());
-        print.setSnack(chocolate);
+        jane.buySnacks(1, chocolate.getCost());
+        chocolate.buy(1);
+        print.setObj(jane, chocolate);
         print.printMVP(0);
 
-        pretzel.addQuantity(41 - pretzel.getQuantity());
-        print.setSnack(pretzel);
+        pretzel.addQuantity(12);
+        print.setObj(jane, pretzel);
         print.printMVP(2);
 
-        bob.addToCashOnHand(22.14 - bob.getCashOnHand());
-        pretzel.addQuantity(38 - pretzel.getQuantity());
-        print.setPerson(bob);
-        print.setSnack(pretzel);
+        bob.buySnacks(3, pretzel.getCost());
+        pretzel.buy(3);
+        print.setObj(bob, pretzel);
         print.printMVP(0);
     }
 }

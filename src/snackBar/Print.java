@@ -22,11 +22,8 @@ public class Print {
         System.out.println("");
     }
 
-    public void setPerson (Customer person) {
+    public void setObj (Customer person, Snack food) {
         this.person = person;
-    }
-
-    public void setSnack (Snack food) {
         this.food = food;
     }
 }
